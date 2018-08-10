@@ -187,6 +187,8 @@ public class Biblioteka {
 				for (int i = 0; i < books.size(); i++) {
 					System.out.println(books.get(i).getBookName());
 				}
+			default: 
+				System.out.println("Unos opcije nije dobar.");
 			}
 
 		} while (opcija != 0);
