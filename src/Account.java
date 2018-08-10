@@ -42,6 +42,13 @@ public class Account {
 			System.out.println("Mozete podici samo tri knjige.");
 	}
 	
+	public void smanjiBrojPosudjenihKnjiga() {
+		if (this.brojPosudjenihKnjiga > 0)
+			this.brojPosudjenihKnjiga -= 1;
+		else
+			System.out.println("Nemate posudjenih knjiga.");
+	}
+	
 	public void info() {
 		System.out.println("ID: " + getId());
 		System.out.println("Ime: " + getName());
