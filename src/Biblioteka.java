@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -74,7 +76,7 @@ public class Biblioteka {
 
 		do {
 			System.out.println(
-					"1 - Registracija korisnika, \n2 - Registracija knjige, \n3 - Informacije o korisniku, \n4 - Informacije o knjizi, \n5 - Podigni knjigu, \n6 - Vrati knjigu, \n7 - Ispis knjiga koje su dostupne, \n0 - Izlaz \nIzaberite opciju: ");
+					"1 - Registracija korisnika, \n2 - Registracija knjige, \n3 - Informacije o korisniku, \n4 - Informacije o knjizi, \n5 - Podigni knjigu, \n6 - Vrati knjigu, \n7 - Ispis knjiga koje su dostupne, \n8 - Iprintaj informacije o korisniku, \n9 - Isprintaj informacije o knjizi, \n0 - Izlaz \nIzaberite opciju: ");
 			opcija = isInteger();
 
 			switch (opcija) {
@@ -201,9 +203,49 @@ public class Biblioteka {
 					System.out.println(books.get(i).getBookId() + " " + books.get(i).getBookName());
 				}
 				break;
+			case 8: 
+				do {
+					System.out.println("Upiste ID korisnika cije informacije zelite isprintati: ");
+					idKorisnika = isInteger();
+					if (existUser(idKorisnika) == false) {
+						System.out.println("Korisnik sa unijetim ID brojem ne postoji!");
+					}
+				} while (existUser(idKorisnika) == false);
+				for (int i = 0; i < users.size(); i++) {
+					if (users.get(i).getId() == idKorisnika) {
+						try {
+							users.get(i).ispisInformacijaOKorisniku();
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						};
+					}
+				}
+				break;
+			case 9: 
+				do {
+					System.out.println("Upiste ID knjige cije informacije zelite isprintati: ");
+					idKnjige = isInteger();
+					if (existBook(idKnjige) == false) {
+						System.out.println("Knjiga sa unijetim ID brojem ne postoji!");
+					}
+				} while (existBook(idKnjige) == false);
+				for (int i = 0; i < books.size(); i++) {
+					if (books.get(i).getBookId() == idKnjige) {
+						try {
+							books.get(i).ispisInformacijaOKnjizi();
+							} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						};
+					}
+				}
+				break;
 			default: 
 				System.out.println("Unos opcije nije dobar.");
 			}
+			
+				
 
 		} while (opcija != 0);
 

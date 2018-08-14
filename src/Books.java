@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.PrintWriter;
 
 public class Books {
 
@@ -55,6 +57,21 @@ public class Books {
 		} else {
 			System.out.println("Knjiga nije dostupna.");
 		}
+	}
+	
+	public void ispisInformacijaOKnjizi() throws Exception{
+		File knjiga = new File("/home/bega/eclipse-workspace/Biblioteka/InfoKnjiga");
+		PrintWriter output = new PrintWriter(knjiga);
+		output.println("Informacije o knjizi");
+		output.println("--------------------------");
+		output.println("ID: " + getBookId());
+		output.println("Ime: " + getBookName());
+		if (getStatus() == true) {
+			output.println("Knjiga je dostupna.");
+		} else {
+			output.println("Knjiga nije dostupna.");
+		}
+		output.close();
 	}
 
 }

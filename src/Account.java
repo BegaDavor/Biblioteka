@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.PrintWriter;
 
 public class Account {
 
@@ -53,6 +55,17 @@ public class Account {
 		System.out.println("ID: " + getId());
 		System.out.println("Ime: " + getName());
 		System.out.println("Broj posudjenih knjiga: " + getBrojPosudjenihKnjiga());
+	}
+	
+	public void ispisInformacijaOKorisniku() throws Exception{
+		File racun = new File("/home/bega/eclipse-workspace/Biblioteka/InfoKorisnik");
+		PrintWriter output = new PrintWriter(racun);
+		output.println("Informacije o korisniku");
+		output.println("--------------------------");
+		output.println("ID: " + getId());
+		output.println("Ime: " + getName());
+		output.println("Broj posudjenih knjiga: " + getBrojPosudjenihKnjiga());
+		output.close();
 	}
 
 }
