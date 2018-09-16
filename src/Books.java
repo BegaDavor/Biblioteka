@@ -60,7 +60,7 @@ public class Books {
 	}
 	
 	public void ispisInformacijaOKnjizi() throws Exception{
-		File knjiga = new File("/home/bega/eclipse-workspace/Biblioteka/InfoKnjiga");
+		File knjiga = new File("InfoKnjiga");
 		PrintWriter output = new PrintWriter(knjiga);
 		output.println("Informacije o knjizi");
 		output.println("--------------------------");

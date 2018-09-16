@@ -58,7 +58,7 @@ public class Account {
 	}
 	
 	public void ispisInformacijaOKorisniku() throws Exception{
-		File racun = new File("/home/bega/eclipse-workspace/Biblioteka/InfoKorisnik");
+		File racun = new File("InfoKorisnik");
 		PrintWriter output = new PrintWriter(racun);
 		output.println("Informacije o korisniku");
 		output.println("--------------------------");
