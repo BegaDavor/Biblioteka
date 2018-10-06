@@ -1,3 +1,5 @@
+package library;
+
 import java.io.File;
 import java.io.PrintWriter;
 
@@ -44,10 +46,11 @@ public class Account {
 			System.out.println("Mozete podici samo tri knjige.");
 	}
 	
-	public void smanjiBrojPosudjenihKnjiga() {
+	public void smanjiBrojPosudjenihKnjiga() throws Exception {
 		if (this.brojPosudjenihKnjiga > 0)
 			this.brojPosudjenihKnjiga -= 1;
 		else
+			throw new Exception();
 			System.out.println("Nemate posudjenih knjiga.");
 	}
 	
